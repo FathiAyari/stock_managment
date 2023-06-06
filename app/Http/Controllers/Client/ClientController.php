@@ -37,16 +37,18 @@ class ClientController extends Controller
     }
 
 
-    public function update(Request $request, Client $client)
+    public function update(Request $request, $id)
     {
+        $client=Client::find($id);
         $client->update($request->all());
         return response([
             'message' => 'client est modifier',
         ], 200);
     }
 
-    public function destroy(Client $client)
+    public function destroy($id)
     {
+        $client=Client::find($id);
         $client->delete();
         return response([
             'message' => 'client est supprimer',

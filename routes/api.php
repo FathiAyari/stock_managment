@@ -23,11 +23,7 @@ use App\Http\Controllers\Auth\AuthenticationController;
 
 
 
-Route::get('produit', [ProductController::class, 'index']);
-Route::post('produit', [ProductController::class, 'store']);
-Route::get('produit/{product}', [ProductController::class, 'edit']);
-Route::post('produit/{product}', [ProductController::class, 'update']);
-Route::post('produit/{product}/supprimer', [ProductController::class, 'destroy']);
+
 // Route::resource('client', ClientController::class);
 Route::resource('vente', VenteController::class);
 Route::post('archive', [ArchiveController::class, 'uploadFacture']);
@@ -49,6 +45,10 @@ Route::delete('/client/{id}', [ClientController::class, 'destroy']);
 
 
 // products
+Route::get('/products', [ProductController::class, 'index']);
+Route::post('/product', [ProductController::class, 'create']);
+Route::put('/product/{id}', [ProductController::class, 'update']);
+Route::delete('/product/{id}', [ProductController::class, 'destroy']);
 
 
 // sales
