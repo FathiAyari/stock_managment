@@ -13,7 +13,13 @@ class AuthenticationController extends Controller
 {
     public function register(Request $request)
     {
-        $request->validated();
+        $user = User::where('email', $request->email)->first();
+if($user){
+    return response([
+        'error' => "used email",
+
+    ], 300);
+}
         $userData = [
             'name' => $request->name,
             'email' => $request->email,
