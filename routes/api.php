@@ -28,12 +28,6 @@ Route::post('produit', [ProductController::class, 'store']);
 Route::get('produit/{product}', [ProductController::class, 'edit']);
 Route::post('produit/{product}', [ProductController::class, 'update']);
 Route::post('produit/{product}/supprimer', [ProductController::class, 'destroy']);
-
-Route::get('/client', [ClientController::class, 'index']);
-Route::post('client', [ClientController::class, 'store']);
-Route::get('client/{client}', [ClientController::class, 'edit']);
-Route::post('client/{client}', [ClientController::class, 'update']);
-Route::post('client/{client}/supprimer', [ClientController::class, 'destroy']);
 // Route::resource('client', ClientController::class);
 Route::resource('vente', VenteController::class);
 Route::post('archive', [ArchiveController::class, 'uploadFacture']);
@@ -41,16 +35,17 @@ Route::get('archive/{archive}', [ArchiveController::class, 'getFac']);
 Route::post('searchArchive', [ArchiveController::class, 'search']);
 
 
-// clients
-Route::get('/clients', [ClientController::class, 'index']);
-Route::post('/client/{id}', [ClientController::class, 'create']);
-Route::put('/client/{id}', [ClientController::class, 'update']);
-Route::delete('/client/{id}', [ClientController::class, 'destroy']);
 
 
 // authentication
 Route::post('/register', [AuthenticationController::class, 'register']);
 Route::post('/login', [AuthenticationController::class, 'login']);
+
+// clients
+Route::get('/clients', [ClientController::class, 'index']);
+Route::post('/client', [ClientController::class, 'create']);
+Route::put('/client/{id}', [ClientController::class, 'update']);
+Route::delete('/client/{id}', [ClientController::class, 'destroy']);
 
 
 // products
