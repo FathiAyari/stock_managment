@@ -34,12 +34,11 @@ if($user){
         ], 200);
 
     }
-    public function login(LoginRequest $request)
+    public function login(Request $request)
     {
-        $request->validated();
         $user = User::whereEmail($request->email)->first();
         if (!$user || !Hash::check($request->password, $user->password)) {
-            return response(['message' => "les informations d'identification test"], 422);
+            return response(['error' => "user not found"], 422);
         }
         $token = $user->createToken('forumapp')->plainTextToken;
         return response([
