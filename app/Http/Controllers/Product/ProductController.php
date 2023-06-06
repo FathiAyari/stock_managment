@@ -43,7 +43,7 @@ class ProductController extends Controller
      */
     public function destroy($id )
     {
-        $product=Client::find($id);
+        $product=Product::find($id);
 
         $product->delete();
         return response([
