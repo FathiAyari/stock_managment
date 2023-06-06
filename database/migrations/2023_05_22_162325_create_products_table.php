@@ -17,9 +17,9 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('libelle');
             $table->integer('quantity');
-            $table->integer('price')->default(0);
-            $table->integer('availableQty')->default(0);
+            $table->integer('price');
             $table->timestamps();
+
         });
     }
 
