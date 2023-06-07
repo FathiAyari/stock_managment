@@ -16,7 +16,7 @@ class AuthenticationController extends Controller
         $user = User::where('email', $request->email)->first();
 if($user){
     return response([
-        'error' => "used email",
+        'error' => "e-mail utilisé",
 
     ], 300);
 }
@@ -38,7 +38,7 @@ if($user){
     {
         $user = User::whereEmail($request->email)->first();
         if (!$user || !Hash::check($request->password, $user->password)) {
-            return response(['error' => "user not found"], 422);
+            return response(['error' => "utilisateur non trouvé"], 422);
         }
         $token = $user->createToken('forumapp')->plainTextToken;
         return response([
