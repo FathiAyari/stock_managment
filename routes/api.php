@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SaleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArchiveController;
@@ -52,6 +53,10 @@ Route::delete('/product/{id}', [ProductController::class, 'destroy']);
 
 
 // sales
+Route::get('/sales', [SaleController::class, 'index']);
+Route::post('/sale', [SaleController::class, 'create']);
+Route::put('/sale/{id}', [SaleController::class, 'update']);
+Route::delete('/sale/{id}', [SaleController::class, 'destroy']);
 
 
 // archive
