@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SaleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,17 +20,6 @@ use App\Http\Controllers\Auth\AuthenticationController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-
-
-
-
-
-// Route::resource('client', ClientController::class);
-Route::resource('vente', VenteController::class);
-Route::post('archive', [ArchiveController::class, 'uploadFacture']);
-Route::get('archive/{archive}', [ArchiveController::class, 'getFac']);
-Route::post('searchArchive', [ArchiveController::class, 'search']);
 
 
 
@@ -57,6 +47,11 @@ Route::get('/sales', [SaleController::class, 'index']);
 Route::post('/sale', [SaleController::class, 'create']);
 Route::put('/sale/{id}', [SaleController::class, 'update']);
 Route::delete('/sale/{id}', [SaleController::class, 'destroy']);
+
+
+// home
+
+Route::get('/home', [HomeController::class, 'index']);
 
 
 // archive
