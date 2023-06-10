@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BillController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SaleController;
 use Illuminate\Http\Request;
@@ -55,3 +56,7 @@ Route::get('/home', [HomeController::class, 'index']);
 
 
 // archive
+Route::post('/pdf/{id}', [BillController::class, 'createBill']);
+Route::post('/pdf', [BillController::class, 'createBill']);
+Route::get('/archive', [BillController::class, 'getArchivesByDate']);
+Route::get('/allpdf', [BillController::class, 'getAllFiles']);

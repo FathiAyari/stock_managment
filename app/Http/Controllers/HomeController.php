@@ -15,7 +15,8 @@ class HomeController extends Controller
         $clients=Client::all()->count();
         $currentDate = Carbon::now()->toDateString();
         $sum = Sale::whereDate('created_at', $currentDate)->sum('price');
-        return response()->json( ["products"=>$products,"clients"=>$clients,"sum"=>$sum], 200);
+
+          return response()->json( ["products"=>$products,"clients"=>$clients,"sum"=>$sum], 200);
 
     }
 }

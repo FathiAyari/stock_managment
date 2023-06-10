@@ -19,10 +19,10 @@ class CreateSalesTable extends Migration
                 ->onDelete('cascade');
             $table->foreignId('client_id')->constrained()
                 ->onDelete('cascade');
-            $table->integer('delivery')->default(0);
-            $table->integer('price');
-            $table->integer('quantity');
-            $table->integer('discount');
+            $table->double('delivery')->default(0);
+            $table->double('price');
+            $table->double('quantity');
+            $table->double('discount');
 
             $table->timestamps();
         });
